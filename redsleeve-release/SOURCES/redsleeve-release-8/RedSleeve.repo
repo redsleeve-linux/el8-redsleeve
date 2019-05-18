@@ -1,0 +1,28 @@
+[Redsleeve_BaseOS]
+name=RedSleeve-$releasever - BaseOS
+mirrorlist=http://ftp.redsleeve.org/pub/el$releasever/mirrors_baseos
+#baseurl=http://ftp.redsleeve.org/pub/el$releasever/$releasever/BaseOS
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redsleeve-8
+
+[Redsleeve_AppStream]
+name=RedSleeve-$releasever - AppStream
+mirrorlist=http://ftp.redsleeve.org/pub/el$releasever/mirrors_appstream
+#baseurl=http://ftp.redsleeve.org/pub/el$releasever/$releasever/AppStream
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redsleeve-8
+
+[Redsleeve_RedSleeve]
+name=RedSleeve-$releasever - RedSleeve
+mirrorlist=http://ftp.redsleeve.org/pub/el$releasever/mirrors_redsleeve
+#baseurl=http://ftp.redsleeve.org/pub/el$releasever/$releasever/RedSleeve
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redsleeve-8
+
+[Redsleeve_extra]
+name=RedSleeve-$releasever - extra
+mirrorlist=http://ftp.redsleeve.org/pub/el$releasever/mirrors_extra
+#baseurl=http://ftp.redsleeve.org/pub/el$releasever/$releasever/extra
+gpgcheck=1
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redsleeve-8
