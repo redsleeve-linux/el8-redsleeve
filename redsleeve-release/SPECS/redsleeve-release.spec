@@ -11,7 +11,7 @@
 
 Name:           redsleeve-release
 Version:        %{full_release_version}
-Release:        0.1%{?dist}
+Release:        0.2%{?dist}
 Summary:        %{product_family} release file
 Group:          System Environment/Base
 License:        GPLv2
@@ -26,6 +26,7 @@ Source0:        redsleeve-release-%{base_release_version}.0.tar.gz
 Source1:        85-display-manager.preset
 Source2:        90-default.preset
 Source3:        99-default-disable.preset
+Source4:        arch
 
 Source100:      rootfs-expand
 
@@ -109,6 +110,8 @@ mkdir -p %{buildroot}/%{_prefix}/lib/systemd/system-preset/
 install -m 0644 %{SOURCE1} %{buildroot}/%{_prefix}/lib/systemd/system-preset/
 install -m 0644 %{SOURCE2} %{buildroot}/%{_prefix}/lib/systemd/system-preset/
 install -m 0644 %{SOURCE3} %{buildroot}/%{_prefix}/lib/systemd/system-preset/
+mkdir -p %{buildroot}/etc/dnf/vars/
+install -m 0644 %{SOURCE4} %{buildroot}/etc/dnf/vars
 
 # Install arm32 specific tools
 mkdir -p %{buildroot}/%{_bindir}/
@@ -130,6 +133,7 @@ rm -rf %{buildroot}
 %config(noreplace) /etc/issue.net
 /etc/pki/rpm-gpg/
 %config(noreplace) /etc/yum.repos.d/*
+%config(noreplace) /etc/dnf/vars/*
 /etc/rpm/macros.dist
 %{_docdir}/redhat-release
 %{_docdir}/redsleeve-release/*
@@ -137,5 +141,8 @@ rm -rf %{buildroot}
 %attr(0755,root,root) %{_bindir}/rootfs-expand
 
 %changelog
+* Fri Jul 19 2019 Jacco Ligthart <jacco@redsleeve.org> 8.0-0.2.el8
+- added arch=armv5tel for dnf
+
 * Sat May 18 2019 Jacco Ligthart <jacco@redsleeve.org> 8.0-0.1.el8
 - Initial setup for Redsleeve-8.0
